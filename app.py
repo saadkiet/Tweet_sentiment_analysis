@@ -25,9 +25,9 @@ button = st.button("Analyze")
 
 d = {
 
-    0: 'Negative',
-    1: 'Neutral',
-    2: 'Positive'
+    0: 'Negative 😡',
+    1: 'Neutral 😏',
+    2: 'Positive 🙂'
 }
 def preprocess(text):
     new_text = []
