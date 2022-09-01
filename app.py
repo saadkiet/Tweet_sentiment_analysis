@@ -34,6 +34,7 @@ d = {
     2: 'Positive 🙂'
 }
 def preprocess(text):
+    translated_tweet = [translator.translate(text, dest="en")]
     new_text = []
     for t in text.split(" "):
         t = '@user' if t.startswith('@') and len(t) > 1 else t
@@ -71,8 +72,8 @@ def plot_analysis(b):
 
 
 if user_input and button:
-    translated_tweet = translator.translate(user_input, dest="en")
-    tweet= preprocess(translated_tweet)
+    #translated_tweet = translator.translate(user_input, dest="en")
+    tweet= preprocess(user_input)
     test_sample = tokenizer(tweet, padding=True, truncation=True, max_length=512, return_tensors='pt')
     # test_sample
     output = model(**test_sample)
