@@ -9,7 +9,8 @@ import matplotlib.pyplot as plt
 #import tk
 import torch
 
-
+st.head("Tweet Sentiment Analyzer")
+st.markdown("Enter a Tweet in the empty box below and click Analyze")
 @st.cache(allow_output_mutation=True)
 def get_model():
     roberta = "cardiffnlp/twitter-roberta-base-sentiment-latest"
