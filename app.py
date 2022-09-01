@@ -8,6 +8,9 @@ import torch
 import matplotlib.pyplot as plt
 #import tk
 import torch
+import googletrans
+from googletrans import Translator
+translator = Translator()
 
 st.header("Tweet Sentiment Analyzer 🤓")
 st.markdown("Enter a Tweet in the empty box below and click Analyze")
@@ -68,7 +71,8 @@ def plot_analysis(b):
 
 
 if user_input and button:
-    tweet= preprocess(user_input)
+    translated_tweet = translator.translate(user_input, dest="en")
+    tweet= preprocess(translated_tweet)
     test_sample = tokenizer(tweet, padding=True, truncation=True, max_length=512, return_tensors='pt')
     # test_sample
     output = model(**test_sample)
