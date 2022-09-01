@@ -36,7 +36,7 @@ d = {
 def preprocess(text):
     translated_tweet = [translator.translate(text, dest="en")]
     new_text = []
-    for t in text.split(" "):
+    for t in translated_tweet.split(" "):
         t = '@user' if t.startswith('@') and len(t) > 1 else t
         t = 'http' if t.startswith('http') else t
         new_text.append(t)
